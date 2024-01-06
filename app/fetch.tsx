@@ -3,6 +3,7 @@ import { cache } from "react";
 import Category from "./Categories";
 import NoMeal from "./ui/Null";
 import { MainIngResult } from "./Searches";
+import IngList from "./Ingredients";
 
 export interface CateProp{
     idCategory: number,
@@ -83,5 +84,7 @@ export async function fetchByCategory(category:string){
 export async function fetchIngredients() {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`, {cache:'no-store'});
     const data = await response.json();
-    
+    return data.meals.map((item:IngProp, index:number) =>{
+        return <IngList term={item} key={index} />
+    })
 }

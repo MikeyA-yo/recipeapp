@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic'
 import Slides from "@/components/Swipes";
 import Search from "@/components/Search";
 import { AreaResult, CategoryResult, IngredientResult } from "@/components/results";
+import Ingredients from "@/components/Ing-Card";
  
 
 export default function Home() {
@@ -31,11 +32,10 @@ export default function Home() {
         <CardCate />
      </Suspense>
      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-     <AreaResult term="American" />
+     {/* <AreaResult term="American" />
      <CategoryResult term="breakfast" />
-     <IngredientResult term="cheese" />
+     <IngredientResult term="cheese" /> */}
      </div>
-    
     </main>
   );
 }
