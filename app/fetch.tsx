@@ -88,3 +88,10 @@ export async function fetchIngredients() {
         return <IngList term={item} key={index} />
     })
 }
+
+export async function fetchByName(name:string) {
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`, {cache:'no-store'});
+    const data = await response.json();
+    console.log(data);
+}
+fetchByName('big mac');
