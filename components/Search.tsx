@@ -19,30 +19,25 @@ function getResult(val:string, term:string){
 }
 
 function Result({ val,term }:{term:string, val:string}){
-    console.log(val, term);
-    if (val == 'country'){
-        return (<AreaResult term={term} />)
-    }else if(val == 'categories'){
-        return (<CategoryResult term={term} />)
-    }else if(val == 'ingredients'){
-        return (<IngredientResult term={term} />)
-    }else if (val == 'name'){
+    let resultComponent;
 
+    if (val === 'country') {
+      resultComponent = <AreaResult term={term} />;
+    } else if (val === 'categories') {
+      resultComponent = <CategoryResult term={term} />;
+    } else if (val === 'ingredients') {
+      resultComponent = <IngredientResult term={term} />;
+    } else if (val === 'name') {
+      // Handle 'name' case if needed
     }
-    return null;
-    // return ( getResult(val, term));
+  
+    return resultComponent;
 }
 
 export default function Search(){
     const [value,setValue] = useState("")
     const [searchTerm, setSearchTerm] = useState("");
     let placeholder = `Search by ${value ?? '...'} `;
-    // useEffect(()=>{
-    //     console.log(value,searchTerm)
-    //    if (value && searchTerm){
-    //      <Result val={value} term={searchTerm} />
-    //    }
-    // },[value, searchTerm])
    
     return (
         <>
@@ -65,9 +60,7 @@ export default function Search(){
             </select>
         </div>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-            {/* <AreaResult term="Chinese" />
-            <IngredientResult term="cheese" /> */}
-           {/* <Result  val={`country`} term={`Canadian`} /> */}
+           <Result val={value} term={searchTerm} />
         </div>
         </>
     )

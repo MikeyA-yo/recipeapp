@@ -1,3 +1,4 @@
+"use client"
 import CardCate from "@/components/Categ-card";
 import Category from "./Categories";
 import { fetchCategory, CateProp, fetchByCategory } from "./fetch";
@@ -32,8 +33,8 @@ export default function Home() {
         <CardCate />
      </Suspense>
      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-     {/* <AreaResult term="American" />
-     <CategoryResult term="breakfast" />
+     {/* <AreaResult term="American" /> */}
+     {/* <CategoryResult term="breakfast" />
      <IngredientResult term="cheese" /> */}
      </div>
     </main>
