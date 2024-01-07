@@ -1,4 +1,5 @@
 "use client"
+import { useDebouncedCallback } from "use-debounce";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
 // import * as MagnifyingGlassIcon  from '@heroicons/react/outline';
 import { useState,useEffect } from "react";
@@ -21,11 +22,13 @@ function getResult(val:string, term:string){
 function Result({ val,term }:{term:string, val:string}){
     let resultComponent;
 
-    if (val === 'country') {
+    if (val !=="ingredient" && term === "") {
+        resultComponent = <></>;
+    }else if (val === 'country') {
       resultComponent = <AreaResult term={term} />;
     } else if (val === 'categories') {
       resultComponent = <CategoryResult term={term} />;
-    } else if (val === 'ingredients') {
+    } else if (val === 'ingredient') {
       resultComponent = <IngredientResult term={term} />;
     } else if (val === 'name') {
       // Handle 'name' case if needed
@@ -41,7 +44,7 @@ export default function Search(){
    
     return (
         <>
-        <div className="flex gap-8 overflow-hidden lg:flex-row flex-col">
+        <div className="flex lg:gap-8 gap-5 overflow-hidden lg:flex-row flex-col">
             <label htmlFor="search" >
                 Search
             </label>
@@ -59,7 +62,7 @@ export default function Search(){
                 <option value={`country`}>country or region</option>
             </select>
         </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 pt-24 grid-cols-1 gap-5">
            <Result val={value} term={searchTerm} />
         </div>
         </>

@@ -14,7 +14,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",

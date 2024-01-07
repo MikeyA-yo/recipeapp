@@ -2,6 +2,7 @@ import { MealProp } from "./fetch";
 import { Montserrat } from "next/font/google";
 import { fetchByMain } from "./fetch";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const mont = Montserrat({weight:["600", "900"], subsets:["cyrillic-ext"]});
