@@ -5,6 +5,7 @@ import NoMeal from "./ui/Null";
 import { MainIngResult } from "./Searches";
 import IngList from "./Ingredients";
 import RecipeDisplay from "@/components/recipe-card";
+import { log } from "console";
 
 export interface CateProp{
     idCategory: number,

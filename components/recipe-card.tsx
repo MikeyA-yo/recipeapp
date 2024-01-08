@@ -2,6 +2,7 @@ import { Recipe } from "@/app/fetch"
 import { Salsa } from "next/font/google"
 import { Genos } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 const salsa = Salsa({weight:['400'], subsets :['latin']});
 const genos = Genos({weight:['800', '700'], subsets:['cherokee']})
@@ -9,7 +10,7 @@ const genos = Genos({weight:['800', '700'], subsets:['cherokee']})
 export default function RecipeDisplay({term}:{term:Recipe}){
     return (
        <>
-       <div  className="flex flex-col gap-12">
+       <div  className="flex flex-col gap-12 m-10">
         <Image src={term.strMealThumb} alt={`image of ${term.strMeal}`} width={900} height={600} />
         <h1 className={`text-3xl ${genos.className}`}>{term.strMeal}</h1>
           <div className="ing flex flex-col gap-5" >
@@ -40,6 +41,9 @@ export default function RecipeDisplay({term}:{term:Recipe}){
           </div>
           <div className="text-xl">
             <p>{term.strInstructions}</p>
+          </div>
+          <div>
+            <Link href={term.strYoutube} target="_blank">Watch a full youtube tutorial</Link>
           </div>
        </div>
        </>

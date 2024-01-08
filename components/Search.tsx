@@ -41,6 +41,9 @@ export default function Search(){
     const [value,setValue] = useState("")
     const [searchTerm, setSearchTerm] = useState("");
     let placeholder = `Search by ${value ?? '...'} `;
+    const setSearch = useDebouncedCallback((term:string)=>{
+        setSearchTerm(term)
+    }, 700)
    
     return (
         <>
@@ -49,7 +52,7 @@ export default function Search(){
                 Search
             </label>
             <input type="search" id="search" name="search" placeholder={placeholder} onChange={e =>{
-                setSearchTerm(e.target.value);
+                setSearch(e.target.value);
             }}/>
             <MagnifyingGlassIcon className="h-6 w-6 text-slate-600" />
             <select name="options" id="options" value={value} onChange={(e) =>{
