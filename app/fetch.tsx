@@ -4,6 +4,7 @@ import Category from "./Categories";
 import NoMeal from "./ui/Null";
 import { MainIngResult } from "./Searches";
 import IngList from "./Ingredients";
+import RecipeDisplay from "@/components/recipe-card";
 
 export interface CateProp{
     idCategory: number,
@@ -40,6 +41,7 @@ export interface Recipe{
     strIngredient4: string,
     strIngredient5: string,
     strIngredient6: string,
+    strIngredient7:string,
     strIngredient8: string,
     strIngredient9: string,
     strIngredient10: string,
@@ -147,11 +149,19 @@ export async function fetchIngredients() {
 export async function fetchByName(name:string) {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`, {cache:'no-store'});
     const data = await response.json();  
+    return data.meals.map((item:Recipe) =>{
+        return (
+            <RecipeDisplay term={item} />
+        )
+    })
 }
 
 export async function fetchById(id:string){
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`, {cache: 'no-store'});
     const data = await response.json();
-    console.log(data);
+    return data.meals.map((item:Recipe) =>{
+        return (
+            <RecipeDisplay term={item} />
+        )
+    })
 }
-fetchById('52772');

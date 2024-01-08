@@ -1,6 +1,5 @@
-import { fetchByArea } from "@/app/fetch";
-import { fetchByMain } from "@/app/fetch";
-import { fetchByCategory } from "@/app/fetch";
+"use client"
+import { fetchByCategory, fetchById, fetchByArea, fetchByMain } from "@/app/fetch";
 import { useEffect, useState } from "react";
 
 export function AreaResult({term}:{term:string}){
@@ -30,6 +29,17 @@ export function IngredientResult({term}:{term:string}){
 
     useEffect(() => {
         const result = fetchByMain(term)
+        setResults(result)
+    },[ term ])
+
+    return results
+}
+
+export  function DetailedRecipe({term}:{term:string}){
+    const [ results, setResults ] = useState<any>();
+
+    useEffect(() => {
+        const result = fetchById(term)
         setResults(result)
     },[ term ])
 
