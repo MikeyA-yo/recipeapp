@@ -16,7 +16,7 @@ export default function Ingredient(){
     return list;
   }
     return (
-        <main className="flex flex-col p-24 gap-3"> 
+        <main className="flex flex-col lg:p-24 gap-3"> 
         <div className="flex gap-2 hover:bg-slate-200 w-40">
           <Link href={`/`} className="flex gap-2"><ArrowLeftCircleIcon className="h-6 w-6" aria-label="go back icon"/> Go back </Link>
         </div>

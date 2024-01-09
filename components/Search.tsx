@@ -55,7 +55,7 @@ export default function Search(){
             <label htmlFor="search" >
                 Search
             </label>
-            <input type="search" id="search" name="search" placeholder={placeholder} onChange={e =>{
+            <input type="search" className="h-12" id="search" name="search" placeholder={placeholder} onChange={e =>{
                 setSearch(e.target.value);
             }}/>
             <MagnifyingGlassIcon className="h-6 w-6 text-slate-600" aria-label="search icon" />
