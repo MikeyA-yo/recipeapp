@@ -25,3 +25,21 @@
     )
     rgb(var(--background-start-rgb));
 } */
+.back:hover {
+  transition: all 0.3s;
+  transition-delay: 0.6s, 0.9s;
+  transition-property: width, height;
+  /* border-left: 1px solid white; */
+  border-right: 1px solid rgb(85, 83, 83);
+  /* border-bottom: 1px solid white; */
+  border-top: 1px solid rgb(85, 83, 83);
+}
+.back:hover {
+  transition: all 0.3s;
+  transition-delay: 0.6s, 0.9s;
+  transition-property: width, height;
+  border-left: 1px solid rgb(85, 83, 83);
+  /* border-right: 1px solid white; */
+   border-bottom: 1px solid rgb(85, 83, 83); 
+  /* border-top: 1px solid white; */
+}

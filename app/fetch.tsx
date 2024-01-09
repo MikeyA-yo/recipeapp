@@ -139,10 +139,19 @@ export async function fetchByCategory(category:string){
     });
 }
 
-export async function fetchIngredients() {
+export async function fetchIngredients(filter?:string) {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`, {cache:'no-store'});
     const data = await response.json();
-    return data.meals.map((item:IngProp, index:number) =>{
+    if (filter) {
+       const datF = data.meals.filter((item:IngProp, index:number)=>{
+        const ing = item.strIngredient;
+        return ing.toLowerCase().includes(filter)
+       })
+      return datF.map((item:IngProp, index:number) =>{
+        return <IngList term={item} key={index} />
+       })
+    }
+    return data.meals.map((item:IngProp, index:number) =>{     
         return <IngList term={item} key={index} />
     })
 }

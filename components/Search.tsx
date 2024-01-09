@@ -1,23 +1,11 @@
 "use client"
 import { useDebouncedCallback } from "use-debounce";
 import { MagnifyingGlassIcon, XMarkIcon, XCircleIcon } from "@heroicons/react/24/outline"
-// import * as MagnifyingGlassIcon  from '@heroicons/react/outline';
 import { useState } from "react";
 import { AreaResult, CategoryResult, IngredientResult, DetailedRecipeName } from "./results";
 import Link from "next/link";
 
-function getResult(val:string, term:string){
-    console.log(val, term);
-    if (val == 'country'){
-        return (<AreaResult term={term} />)
-    }else if(val == 'categories'){
-        return (<CategoryResult term={term} />)
-    }else if(val == 'ingredients'){
-        return (<IngredientResult term={term} />)
-    }else if (val == 'name'){
 
-    }
-}
 
 function Reccomend(){
     let recommend;
@@ -25,8 +13,8 @@ function Reccomend(){
     if (x === true) {
         recommend = 
         <div>
-            <i className="flex gap-2 text-red-400">i recommend searching by ingredient or category <XCircleIcon className="h-5 text-red-700 w-5" onClick={ () =>{ setX(false)}}  /></i>
-            <p><Link href={`/ingredient`}>View a valid list of ingredients here</Link></p>
+            <i className="flex gap-2 text-red-400">i recommend searching by ingredient or category <XCircleIcon className="h-10 lg:h-6 lg:w-6 md:h-6 md:w-6 text-red-700 w-10" onClick={ () =>{ setX(false)}}  /></i>
+            <p><Link href={`/ingredient`}>View a valid list of ingredients <span className="underline-offset-auto text-blue-700">here</span></Link></p>
         </div>
     }else{
         recommend = <></>

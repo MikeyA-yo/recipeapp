@@ -11,8 +11,8 @@ const genos = Genos({weight:['800', '700'], subsets:['cherokee']})
 export default function RecipeDisplay({term}:{term:Recipe}){
     return (
        <>
-       <div  className="flex flex-col gap-12 m-10">
-        <div className="flex gap-2">
+       <div  className="flex flex-col justify-items-center p-13 items-center gap-12 m-10">
+        <div className="flex gap-2 hover:bg-slate-200 w-40">
         <Link href={`/`} className="flex gap-2"><ArrowLeftCircleIcon className="h-6 w-6" aria-label="go back icon"/> Go back </Link>
         </div>
         <Image unoptimized src={term.strMealThumb} alt={`image of ${term.strMeal}`} width={700} height={200} />
