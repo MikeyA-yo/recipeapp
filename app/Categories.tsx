@@ -8,7 +8,7 @@ return (
     <>
     <div className="flex flex-col ">
      <div>
-       <Image src={category.strCategoryThumb} alt={`Picture of ${category.strCategory}`} width={100} height={100} />
+       <Image unoptimized src={category.strCategoryThumb} alt={`Picture of ${category.strCategory}`} width={100} height={100} />
     </div>
       <div>
         <h1 className={`${lusi.className} text-3xl`}>{category.strCategory}</h1>
