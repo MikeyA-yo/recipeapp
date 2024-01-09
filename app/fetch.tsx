@@ -149,12 +149,22 @@ export async function fetchIngredients() {
 
 export async function fetchByName(name:string) {
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`, {cache:'no-store'});
-    const data = await response.json();  
-    return data.meals.map((item:Recipe) =>{
+    const data = await response.json(); 
+    if (data.meals == null){
         return (
-            <RecipeDisplay term={item} />
+            <NoMeal term={name} />
         )
-    })
+    }
+   return data.meals.map((item:MealProp) =>{
+        return (
+            <MainIngResult text={item}  />
+        )
+    }); 
+    // return data.meals.map((item:Recipe) =>{
+    //     return (
+    //         <RecipeDisplay term={item} />
+    //     )
+    // })
 }
 
 export async function fetchById(id:string){

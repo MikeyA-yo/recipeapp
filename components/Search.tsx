@@ -1,10 +1,10 @@
 "use client"
 import { useDebouncedCallback } from "use-debounce";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline"
+import { MagnifyingGlassIcon, XMarkIcon, XCircleIcon } from "@heroicons/react/24/outline"
 // import * as MagnifyingGlassIcon  from '@heroicons/react/outline';
-import { useState,useEffect } from "react";
-import { fetchByArea, fetchByMain } from "@/app/fetch";
-import { AreaResult, CategoryResult, IngredientResult } from "./results";
+import { useState } from "react";
+import { AreaResult, CategoryResult, IngredientResult, DetailedRecipeName } from "./results";
+import Link from "next/link";
 
 function getResult(val:string, term:string){
     console.log(val, term);
@@ -17,6 +17,21 @@ function getResult(val:string, term:string){
     }else if (val == 'name'){
 
     }
+}
+
+function Reccomend(){
+    let recommend;
+    const [x, setX] = useState<boolean>(true);
+    if (x === true) {
+        recommend = 
+        <div>
+            <i className="flex gap-2 text-red-400">i recommend searching by ingredient or category <XCircleIcon className="h-5 text-red-700 w-5" onClick={ () =>{ setX(false)}}  /></i>
+            <p><Link href={`/ingredient`}>View a valid list of ingredients here</Link></p>
+        </div>
+    }else{
+        recommend = <></>
+    }
+    return recommend;
 }
 
 function Result({ val,term }:{term:string, val:string}){
@@ -32,6 +47,7 @@ function Result({ val,term }:{term:string, val:string}){
       resultComponent = <IngredientResult term={term} />;
     } else if (val === 'name') {
       // Handle 'name' case if needed
+      resultComponent = <DetailedRecipeName term={term} />
     }
   
     return resultComponent;
@@ -54,7 +70,7 @@ export default function Search(){
             <input type="search" id="search" name="search" placeholder={placeholder} onChange={e =>{
                 setSearch(e.target.value);
             }}/>
-            <MagnifyingGlassIcon className="h-6 w-6 text-slate-600" />
+            <MagnifyingGlassIcon className="h-6 w-6 text-slate-600" aria-label="search icon" />
             <select name="options" id="options" value={value} onChange={(e) =>{
                 setValue(e.target.value)
             }}>
@@ -65,6 +81,7 @@ export default function Search(){
                 <option value={`country`}>country or region</option>
             </select>
         </div>
+        <Reccomend />
         <div className="grid lg:grid-cols-3 md:grid-cols-2 pt-24 grid-cols-1 gap-5">
            <Result val={value} term={searchTerm} />
         </div>

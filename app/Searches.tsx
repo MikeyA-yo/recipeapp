@@ -14,7 +14,7 @@ export  function MainIngResult({text}:{text:MealProp}){
     return (
     <>
        <div className={`${mont.className} flex flex-col  gap-5 justify-center content-center  `}>
-          <Image src={text.strMealThumb} alt={`Image of ${text.strMeal}`} width={120} height={120} />
+          <Image unoptimized src={text.strMealThumb} alt={`Image of ${text.strMeal}`} width={120} height={120} />
           <h1 className="text-3xl hover:text-slate-800" >{text.strMeal}</h1>
           <button
           onClick={() => router.push(`${text.idMeal}/recipe`) }
