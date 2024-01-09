@@ -145,7 +145,7 @@ export async function fetchIngredients(filter?:string) {
     if (filter) {
        const datF = data.meals.filter((item:IngProp, index:number)=>{
         const ing = item.strIngredient;
-        return ing.toLowerCase().includes(filter)
+        return ing.toLowerCase().includes(filter.toLowerCase())
        })
       return datF.map((item:IngProp, index:number) =>{
         return <IngList term={item} key={index} />
