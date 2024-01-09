@@ -47,10 +47,10 @@ export default function Slides(){
                 return (
                     <SwiperSlide key={page.id}>
                         <div className="hidden lg:block">
-                            <Image unoptimized src={page.image} alt="food image" width={1144}  height={672}/>
+                            <Image  src={page.image} alt="food image" width={1144}  height={672}/>
                         </div>
                         <div className=" lg:hidden block">
-                            <Image  unoptimized src={page.imgS} alt="food image"  width={820} height={620} />
+                            <Image   src={page.imgS} alt="food image"  width={820} height={620} />
                         </div>
                         <span className="text-3xl text-center absolute text-stone-100  bg-slate-700 p-4 opacity-90 sm:bg-transparent sm:p-0 sm:opacity-100 bottom-10 right-1/2 transform translate-x-1/2 sm:transform-none sm:top-1/3 sm:left-12 md:left-20 lg:left-40 flex flex-col items-center sm:items-start sm:text-5xl md:text-6xl lg:text-7xl my-4">
                               {page.msg}
