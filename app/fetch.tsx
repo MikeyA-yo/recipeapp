@@ -87,7 +87,7 @@ export interface Recipe{
     https://www.themealdb.com/api/json/v1/1/categories.php`, {cache :'no-store'});
     const data = await response.json();
     return data.categories.map((item: CateProp, index: number) => {
-       return <Category category={item} key={item.idCategory} /> 
+       return <Category category={item} key={index} /> 
     });
     // ((item: CateProp, index: number) => {
     //     <Category category={item} key={item.idCategory} />;
@@ -164,9 +164,9 @@ export async function fetchByName(name:string) {
             <NoMeal term={name} />
         )
     }
-   return data.meals.map((item:MealProp) =>{
+   return data.meals.map((item:MealProp, index:number) =>{
         return (
-            <MainIngResult text={item}  />
+            <MainIngResult text={item} key={index} />
         )
     }); 
     // return data.meals.map((item:Recipe) =>{
@@ -179,9 +179,9 @@ export async function fetchByName(name:string) {
 export async function fetchById(id:string){
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`, {cache: 'no-store'});
     const data = await response.json();
-    return data.meals.map((item:Recipe) =>{
+    return data.meals.map((item:Recipe, index:number) =>{
         return (
-            <RecipeDisplay term={item} />
+            <RecipeDisplay term={item} key={index} />
         )
     })
 }
