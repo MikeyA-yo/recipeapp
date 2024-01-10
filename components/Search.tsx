@@ -1,7 +1,7 @@
 "use client"
 import { useDebouncedCallback } from "use-debounce";
 import { MagnifyingGlassIcon, XMarkIcon, XCircleIcon } from "@heroicons/react/24/outline"
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { AreaResult, CategoryResult, IngredientResult, DetailedRecipeName } from "./results";
 import Link from "next/link";
 
@@ -46,6 +46,7 @@ export default function Search(){
     const [value,setValue] = useState("")
     const [searchTerm, setSearchTerm] = useState("");
     let placeholder = `Search by ${value ?? '...'} `;
+    const inputRef = useRef(null);
     const setSearch = useDebouncedCallback((term:string)=>{
         setSearchTerm(term)
     }, 700)
@@ -56,7 +57,9 @@ export default function Search(){
             <label htmlFor="search" >
                 Search
             </label>
-            <input type="text" className="bg-slate-500" id="search" name="search" placeholder={placeholder} onChange={e =>{
+            <input type="text" ref={inputRef} className="bg-slate-500" id="search" name="search" placeholder={placeholder} onClick={() => {
+                inputRef.current.focus();
+            }} onChange={e =>{
                 setSearch(e.target.value);
             }}/>
             <MagnifyingGlassIcon className="h-6 w-6 text-slate-600" aria-label="search icon" />
