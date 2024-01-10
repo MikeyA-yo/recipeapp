@@ -46,7 +46,7 @@ export default function Search(){
     const [value,setValue] = useState("")
     const [searchTerm, setSearchTerm] = useState("");
     let placeholder = `Search by ${value ?? '...'} `;
-    const inputRef = useRef(null);
+    const inputRef = useRef<any>(null);
     const setSearch = useDebouncedCallback((term:string)=>{
         setSearchTerm(term)
     }, 700)
