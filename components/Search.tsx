@@ -15,6 +15,7 @@ function Reccomend(){
         <div>
             <i className="flex gap-2 text-red-400">i recommend searching by ingredient or category <XCircleIcon className="h-10 lg:h-6 lg:w-6 md:h-6 md:w-6 text-red-700 w-10" onClick={ () =>{ setX(false)}}  /></i>
             <p><Link href={`/ingredient`}>View a valid list of ingredients <span className="underline-offset-auto text-blue-700">here</span></Link></p>
+            <p><Link href={`/countries`}>View a valid list of country naming convention <span className="underline-offset-auto text-blue-700">here</span></Link></p>
         </div>
     }else{
         recommend = <></>
@@ -55,11 +56,11 @@ export default function Search(){
             <label htmlFor="search" >
                 Search
             </label>
-            <input type="search"  autoFocus  id="search" name="search" placeholder={placeholder} onChange={e =>{
+            <input type="search"  autoFocus className="bg-slate-500" id="search" name="search" placeholder={placeholder} onChange={e =>{
                 setSearch(e.target.value);
             }}/>
             <MagnifyingGlassIcon className="h-6 w-6 text-slate-600" aria-label="search icon" />
-            <select name="options" id="options" value={value} onChange={(e) =>{
+            <select name="options" id="options" value={value} className="bg-slate-600" onChange={(e) =>{
                 setValue(e.target.value)
             }}>
                 <option value={``} >Select a search option</option>

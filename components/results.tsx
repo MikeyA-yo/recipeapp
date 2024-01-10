@@ -1,5 +1,5 @@
 "use client"
-import { fetchByCategory, fetchById, fetchByArea, fetchByMain, fetchByName } from "@/app/fetch";
+import { fetchByCategory, fetchById, fetchByArea, fetchByMain, fetchByName, fetchValCountries } from "@/app/fetch";
 import { useEffect, useState } from "react";
 
 export function AreaResult({term}:{term:string}){
@@ -54,4 +54,14 @@ export  function DetailedRecipeName({term}:{term:string}){
     },[ term ])
 
     return results
+}
+
+export function Countries(){
+    const [results,setResults] = useState<any>();
+
+    useEffect(()=>{
+        const results = fetchValCountries();
+        setResults(results)
+    },[])
+    return results;
 }

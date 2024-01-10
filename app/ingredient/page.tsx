@@ -2,7 +2,8 @@
 import  { Ingredients, IngredientsF } from "@/components/Ing-Card";
 import { ArrowLeftCircleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, useState } from "react";
+import { CardsSkeleton } from "../ui/Skeletons";
 
 export default function Ingredient(){
   const [search, setSearch] = useState("");
@@ -28,7 +29,9 @@ export default function Ingredient(){
                 setSearch(e.target.value);
             }}/>
           </div>
-          <List search={search} />
+          <Suspense fallback={<CardsSkeleton/>} >
+            <List search={search} />
+          </Suspense>
         </main>
     )
 }

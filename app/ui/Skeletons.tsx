@@ -22,6 +22,10 @@ export function CardSkeleton() {
         <>
          <CardSkeleton />
          <CardSkeleton />
+         <CardSkeleton />
+         <CardSkeleton />
+         <CardSkeleton />
+         <CardSkeleton />
         </>
     )
 

@@ -81,6 +81,9 @@ export interface Recipe{
     strCreativeCommonsConfirmed:null,
     dateModified: any,
 }
+export interface Count{
+    strArea:string,
+}
 
  export async function fetchCategory(){
     const response = await fetch(`
@@ -183,5 +186,13 @@ export async function fetchById(id:string){
         return (
             <RecipeDisplay term={item} key={index} />
         )
+    })
+}
+
+export async function fetchValCountries(){
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`);
+    const data = await response.json();
+    return data.meals.map((item :Count, index:number) =>{
+        return <h1 className="text-3xl " key={index}>{item.strArea}</h1> 
     })
 }
