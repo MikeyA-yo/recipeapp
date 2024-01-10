@@ -56,11 +56,11 @@ export default function Search(){
             <label htmlFor="search" >
                 Search
             </label>
-            <input type="search"  autoFocus className="bg-slate-500" id="search" name="search" placeholder={placeholder} onChange={e =>{
+            <input type="text" className="bg-slate-500" id="search" name="search" placeholder={placeholder} onChange={e =>{
                 setSearch(e.target.value);
             }}/>
             <MagnifyingGlassIcon className="h-6 w-6 text-slate-600" aria-label="search icon" />
-            <select name="options" id="options" value={value} className="bg-slate-600" onChange={(e) =>{
+            <select name="options" id="options" value={value} className="bg-slate-600" onChange={ (e) =>{
                 setValue(e.target.value)
             }}>
                 <option value={``} >Select a search option</option>
