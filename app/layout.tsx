@@ -34,6 +34,7 @@ export const metadata: Metadata = {
 //   },
 // }
 // fetchCategory();
+fetchByMain("cheese");
 export default function RootLayout({
   children,
 }: {
