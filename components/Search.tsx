@@ -53,11 +53,15 @@ export default function Search(){
    
     return (
         <>
-        <div className="flex lg:gap-8 gap-5 overflow-hidden lg:flex-row flex-col">
+        <div className="flex lg:gap-8 gap-5 pt-10 overflow-hidden lg:flex-row flex-col">
             <label htmlFor="search" >
                 Search
             </label>
-          
+            <input type="text" ref={inputRef} autoFocus className="bg-slate-500" id="search" name="search" placeholder={placeholder} onClick={() => {
+                inputRef.current.focus();
+            }} onChange={e =>{
+                setSearch(e.target.value);
+            }}/>
             <MagnifyingGlassIcon className="h-6 w-6 text-slate-600" aria-label="search icon" />
             <select name="options" id="options" value={value} className="bg-slate-600" onChange={ (e) =>{
                 setValue(e.target.value)
