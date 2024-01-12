@@ -57,7 +57,7 @@ export default function Search(){
             <label htmlFor="search" >
                 Search
             </label>
-            <input type="search" ref={inputRef}  className="bg-slate-500" id="search" name="search" placeholder={placeholder} onClick={() => {
+            <input type="text" ref={inputRef}  className="bg-slate-500" id="search" name="search" placeholder={placeholder} onClick={() => {
                 inputRef.current.focus();
             }} onChange={e =>{
                 setSearch(e.target.value);
