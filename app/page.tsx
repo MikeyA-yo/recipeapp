@@ -11,7 +11,7 @@ const bebas= Bebas_Neue({weight:['400'], subsets:['latin','latin-ext'], style:['
 export default function Home() {
   return (
     <main className="lg:p-24 p-10  flex  flex-col gap-8">
-      <div className=" before:bg-gradient-to-r before:from-transparent before:via-white/60 before:absolute before:inset-0 lg:bg-slate-50">
+      <div className=" before:bg-gradient-to-r min-h-screen before:from-transparent before:via-white/60 before:absolute before:inset-0 lg:bg-slate-50">
          <Slides />
       </div>
       <div>
