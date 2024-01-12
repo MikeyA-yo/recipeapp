@@ -53,7 +53,7 @@ export default function Search(){
    
     return (
         <>
-        <div className="flex lg:gap-8 gap-5 pt-10 overflow-hidden lg:flex-row flex-col">
+        <div className="flex lg:gap-8 gap-5 pt-5 overflow-hidden lg:flex-row flex-col">
             <label htmlFor="search" >
                 Search
             </label>
