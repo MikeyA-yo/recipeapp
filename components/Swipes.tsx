@@ -47,7 +47,7 @@ export default function Slides(){
                 return (
                     <SwiperSlide key={page.id}>
                         <div className="hidden lg:block">
-                            <Image  src={page.image} alt="food image" width={1144}  height={672}/>
+                            <Image  src={page.image}  alt="food image" width={1144}  height={672}/>
                         </div>
                         <div className=" lg:hidden block">
                             <Image   src={page.imgS} alt="food image"  width={820} height={620} />
