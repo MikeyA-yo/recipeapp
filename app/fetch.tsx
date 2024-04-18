@@ -27,6 +27,7 @@ export interface IngProp{
 }
 
 export interface Recipe{
+    [key: string]: any;
     idMeal: string,
     strMeal: string,
     strDrinkAlternate:any,
@@ -36,6 +37,7 @@ export interface Recipe{
     strMealThumb: string,
     strTags: any,
     strYoutube: string,
+    strIngredient:string,
     strIngredient1: string,
     strIngredient2: string,
     strIngredient3: string,
@@ -56,6 +58,7 @@ export interface Recipe{
     strIngredient18: string,
     strIngredient19: string,
     strIngredient20: string,
+    strMeasure:string,
     strMeasure1:string,
     strMeasure2: string,
     strMeasure3: string,
